@@ -28,73 +28,45 @@ export class AccountsService {
     this.dummyAccounts = [
       {
         id: 1,
-        accountNumber: 'FR76123456789',
-        bankCode: '30001',
-        balance: 1500.50,
-        accountHolder: 'Jean Dupont'
-      },
-      {
-        id: 2,
-        accountNumber: 'FR76987654321',
-        bankCode: '30002',
-        balance: 2500.00,
-        accountHolder: 'Marie Martin'
-      },
-      {
-        id: 3,
-        accountNumber: 'FR76456789123',
-        bankCode: '30003',
-        balance: 500.75,
-        accountHolder: 'Pierre Durand'
-      },
-      {
-        id: 4,
-        accountNumber: 'FR76321987654',
-        bankCode: '30001',
-        balance: 10000.00,
-        accountHolder: 'Sophie Bernard'
-      },
-      {
-        id: 5,
-        accountNumber: 'FR76876543210',
-        bankCode: '30002',
-        balance: 75.20,
-        accountHolder: 'Lucas Petit'
-      },
-      {
-        id: 6,
         accountNumber: 'MG76123456789',
         bankCode: '30001',
         balance: 1500.50,
-        accountHolder: 'Jean Dupont'
+        accountHolder: 'Rasoa Ramartine'
       },
       {
-        id: 7,
+        id: 2,
         accountNumber: 'MG76987654321',
         bankCode: '30002',
         balance: 2500.00,
-        accountHolder: 'Marie Martin'
+        accountHolder: 'TENDRINJANAHARY Theodore'
       },
       {
-        id: 8,
+        id: 3,
         accountNumber: 'MG76456789123',
         bankCode: '30003',
         balance: 500.75,
-        accountHolder: 'Pierre Durand'
+        accountHolder: 'RAKOTOARISOA Faneva'
       },
       {
-        id: 9,
+        id: 4,
         accountNumber: 'MG76321987654',
-        bankCode: '30001',
+        bankCode: '30004',
         balance: 10000.00,
-        accountHolder: 'Sophie Bernard'
+        accountHolder: 'ANDRIAMANDRANTO Teophile'
       },
       {
-        id: 10,
+        id: 5,
         accountNumber: 'MG76876543210',
-        bankCode: '30002',
+        bankCode: '30005',
         balance: 75.20,
-        accountHolder: 'Lucas Petit'
+        accountHolder: 'SAHONDRA Lisa Parker'
+      },
+      {
+        id: 6,
+        accountNumber: 'MG76823886788',
+        bankCode: '30006',
+        balance: 1500.50,
+        accountHolder: 'RAHARISON Alin Bertrand'
       }
     ];
 

@@ -14,8 +14,8 @@ INSERT INTO accounts ("accountNumber", "bankCode", balance, "accountHolder") VAL
 ('MG76123456789', '30001', 1500.50, 'Rasoa Ramartine'),
 ('MG76987654321', '30002', 2500.00, 'TENDRINJANAHARY Theodore'),
 ('MG76456789123', '30003', 500.75, 'RAKOTOARISOA Faneva'),
-('MG76321987654', '30001', 10000.00, 'ANDRIAMANDRANTO Teophile'),
-('MG76876543210', '30002', 75.20, 'SAHONDRA Lisa Parker');
+('MG76321987654', '30004', 10000.00, 'ANDRIAMANDRANTO Teophile'),
+('MG76876543210', '30005', 75.20, 'SAHONDRA Lisa Parker');
 
 -- Création d'un index pour améliorer les performances
 CREATE INDEX IF NOT EXISTS idx_account_number_bank_code ON accounts ("accountNumber", "bankCode");
