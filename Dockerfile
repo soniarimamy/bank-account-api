@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 
 # Installer les dépendances
-RUN npm ci || npm install
+RUN npm install
 
 # Copier le code source
 COPY . .

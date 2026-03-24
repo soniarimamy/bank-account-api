@@ -12,7 +12,7 @@ services:
       - "${DB_EXTERNAL_PORT}:${DB_INTERNAL_PORT}"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - bank_network
     healthcheck:

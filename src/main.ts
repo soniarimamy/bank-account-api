@@ -28,11 +28,11 @@ async function bootstrap() {
       
       | Numéro de compte | Code bancaire | Titulaire | Solde |
       |-----------------|---------------|-----------|-------|
-      | MG76123456789 | 30001 | Jean Dupont | 1500.50 MGA |
-      | MG76987654321 | 30002 | Marie Martin | 2500.00 MGA |
-      | MG76456789123 | 30003 | Pierre Durand | 500.75 MGA |
-      | MG76321987654 | 30001 | Sophie Bernard | 10000.00 MGA |
-      | MG76876543210 | 30002 | Lucas Petit | 75.20 MGA |
+      | MG76123456789 | 30001 | Rasoa Ramartine | 1500.50 MGA |
+      | MG76987654321 | 30002 | TENDRINJANAHARY Theodore | 2500.00 MGA |
+      | MG76456789123 | 30003 | RAKOTOARISOA Faneva | 500.75 MGA |
+      | MG76321987654 | 30004 | ANDRIAMANDRANTO Teophile | 10000.00 MGA |
+      | MG76876543210 | 30005 | SAHONDRA Lisa Parker | 75.20 MGA |
       
       ### Codes d'erreur possibles:
       - **404** : Compte non trouvé
@@ -42,7 +42,7 @@ async function bootstrap() {
     .setVersion('1.0')
     .setContact(
       'Support Technique',
-      'https://github.com/votre-projet',
+      'https://github.com/soniarimamy/bank-account-api.git',
       'support@bank.com'
     )
     .setLicense('MIT', 'https://opensource.org/licenses/MIT')
