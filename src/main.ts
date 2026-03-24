@@ -13,7 +13,7 @@ async function bootstrap() {
     forbidNonWhitelisted: true,
   }));
   
-  // Configuration de Swagger
+  // Configuration de Swagger avec Bearer Auth
   const config = new DocumentBuilder()
     .setTitle('API de Gestion Bancaire')
     .setDescription(`
@@ -21,8 +21,17 @@ async function bootstrap() {
       
       Cette API permet de gérer des opérations bancaires simples :
       
+      - **Authentification** : Connexion pour obtenir un token JWT
       - **Vérification de solde** : Consulter le solde d'un compte bancaire
       - **Retrait** : Effectuer un retrait d'argent avec vérification du solde
+      
+      ### Authentification
+      
+      Pour utiliser les endpoints protégés, vous devez d'abord vous authentifier :
+      1. Utilisez l'endpoint \`/auth/login\` avec les identifiants
+      2. Copiez le token reçu
+      3. Cliquez sur le bouton "Authorize" en haut de la page
+      4. Entrez votre token au format: \`Bearer VOTRE_TOKEN\`
       
       ### Comptes de démonstration disponibles:
       
@@ -34,7 +43,16 @@ async function bootstrap() {
       | MG76321987654 | 30004 | ANDRIAMANDRANTO Teophile | 10000.00 MGA |
       | MG76876543210 | 30005 | SAHONDRA Lisa Parker | 75.20 MGA |
       
+      ### Utilisateurs de test:
+      
+      | Utilisateur | Mot de passe | Rôle |
+      |------------|--------------|------|
+      | admin | admin123 | Administrateur |
+      | user | user123 | Utilisateur standard |
+      
       ### Codes d'erreur possibles:
+      - **401** : Non authentifié (token manquant ou invalide)
+      - **403** : Accès non autorisé
       - **404** : Compte non trouvé
       - **400** : Données invalides (format incorrect)
       - **500** : Erreur serveur interne
@@ -46,7 +64,19 @@ async function bootstrap() {
       'support@bank.com'
     )
     .setLicense('MIT', 'https://opensource.org/licenses/MIT')
+    .addTag('Authentification', 'Gestion de l\'authentification')
     .addTag('Comptes Bancaires', 'Opérations sur les comptes bancaires')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        name: 'Authorization',
+        description: 'Entrez votre token JWT au format: Bearer <token>',
+        in: 'header',
+      },
+      'access-token', // Nom du security scheme
+    )
     .addServer('http://localhost:3000', 'Serveur de développement')
     .addServer('http://api.bank.com', 'Serveur de production')
     .build();
@@ -56,7 +86,7 @@ async function bootstrap() {
   // Configuration de l'interface Swagger UI
   SwaggerModule.setup('api-docs', app, document, {
     swaggerOptions: {
-      persistAuthorization: true,
+      persistAuthorization: true, // Important: garde l'autorisation après rafraîchissement
       displayRequestDuration: true,
       docExpansion: 'none',
       filter: true,
@@ -64,6 +94,17 @@ async function bootstrap() {
       showCommonExtensions: true,
       tagsSorter: 'alpha',
       operationsSorter: 'alpha',
+      authAction: {
+        'access-token': {
+          name: 'access-token',
+          schema: {
+            type: 'http',
+            scheme: 'bearer',
+            bearerFormat: 'JWT',
+          },
+          value: 'Bearer ', // Préfixe par défaut
+        },
+      },
     },
     customSiteTitle: 'API Gestion Bancaire - Documentation',
     customCss: '.swagger-ui .topbar { background-color: #2c3e50; }',
